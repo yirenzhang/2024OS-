@@ -39,11 +39,11 @@ struct pushregs {
 };
 
 struct trapframe {
-    struct pushregs gpr;
-    uintptr_t status;
-    uintptr_t epc;
+    struct pushregs gpr; //数据寄存器表
+    uintptr_t status;    //禁止中断状态寄存器
+    uintptr_t epc;       //记录中断指令地址寄存器
     uintptr_t badvaddr;
-    uintptr_t cause;
+    uintptr_t cause;     //记录中断指令地址寄存器
 };
 
 void trap(struct trapframe *tf);
